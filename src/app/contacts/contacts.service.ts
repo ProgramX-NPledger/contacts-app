@@ -22,11 +22,11 @@ export class ContactsService {
     return this.http.get<Contact[]>('api/contacts');
   }
 
-  saveContact(contact: Partial<Contact>): Observable<Contact> {
+  saveContact(contact: Contact): Observable<Contact> {
     const headers = { headers: { 'Content-Type': 'application/json' } };
 
     if (!contact.id || contact.id === '') {
-      let newContact: Partial<Contact> = { ...contact, id: nanoid(5) };
+      let newContact: Contact = { ...contact, id: nanoid(5) };
       return this.http.post<Contact>('api/contacts/', newContact, headers)
     }
     else
