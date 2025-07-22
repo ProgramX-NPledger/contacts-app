@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../contacts/contacts.service';
 
@@ -8,10 +8,12 @@ import { ContactsService } from '../contacts/contacts.service';
   styleUrls: ['./edit-contact.component.css']
 })
 export class EditContactComponent implements OnInit {
-  firstName = new FormControl('firstName');
-  lastName = new FormControl();
-  dateOfBirth = new FormControl();
-  favouritesRanking = new FormControl();
+  contactForm = new FormGroup({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    dateOfBirth: new FormControl(),
+    favouritesRanking: new FormControl()
+  });
 
   constructor(private route: ActivatedRoute, private contactsService: ContactsService) { }
 
@@ -21,18 +23,18 @@ export class EditContactComponent implements OnInit {
 
     this.contactsService.getContact(contactId).subscribe(contact => {
       if (contact) {
-        this.firstName.setValue(contact.firstName);
-        this.lastName.setValue(contact.lastName);
-        this.dateOfBirth.setValue(contact.dateOfBirth ? contact.dateOfBirth.toISOString().split('T')[0] : '');
-        this.favouritesRanking.setValue(contact.favoritesRanking);
+        this.contactForm.controls.firstName.setValue(contact.firstName);
+        this.contactForm.controls.lastName.setValue(contact.lastName);
+        this.contactForm.controls.dateOfBirth.setValue(contact.dateOfBirth ? contact.dateOfBirth.toISOString().split('T')[0] : '');
+        this.contactForm.controls.favouritesRanking.setValue(contact.favoritesRanking);
       }
     });
   }
 
   saveContact() {
-    console.log(this.firstName.value);
-    console.log(this.lastName.value);
-    console.log(this.dateOfBirth.value);
-    console.log(this.favouritesRanking.value);
+    console.log(this.contactForm.controls.firstName.value);
+    console.log(this.contactForm.controls.lastName.value);
+    console.log(this.contactForm.controls.dateOfBirth.value);
+    console.log(this.contactForm.controls.favouritesRanking.value);
   }
 }
