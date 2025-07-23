@@ -47,7 +47,7 @@
           <input formControlName="city" placeholder="City" />
           <input formControlName="state" placeholder="State/Region" />
           <input formControlName="postalCode" placeholder="Zip/Postal Code" />
-          <select formControlName="addressType">
+          <select formControlName="addressType">¬
             <option *ngFor="let addressType of addressTypes" [value]="addressType.value">{{ addressType.title }}
             </option>
           </select>
@@ -58,6 +58,7 @@
     <section>
       <nav>Notes</nav>
       <textarea formControlName="notes" placeholder="Enter notes here..." rows="5"></textarea> 
+      <em *ngIf="contactForm.controls.notes.errors?.['restricted']">Restricted words found</em>
     </section>
   <div class="buttons">
     <button class="secondary">Cancel</button>

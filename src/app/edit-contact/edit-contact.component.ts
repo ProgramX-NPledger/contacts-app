@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactsService } from '../contacts/contacts.service';
 import { phoneTypeValues, addressTypeValues } from '../contacts/contact.model';
+import { restrictedFormValidator } from '../validators/restricted-forms-validator';
 
 @Component({
   templateUrl: './edit-contact.component.html',
@@ -30,7 +31,7 @@ export class EditContactComponent implements OnInit {
       postalCode: ['', Validators.required],
       addressType: ['', Validators.required]
     }),
-    notes: ''
+    notes: ['', restrictedFormValidator]
   });
 
   constructor(private route: ActivatedRoute, 
