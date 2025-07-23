@@ -26,3 +26,9 @@ export const phoneTypeValues = [
   { title: 'Home', value: 'home' },
   { title: 'Work', value: 'work' },
 ];
+
+export const addressTypeValues = [
+  { title: 'Home', value: 'home' },
+  { title: 'Work', value: 'work' },
+  { title: 'Other', value: 'other' },
+];
