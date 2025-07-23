@@ -8,6 +8,7 @@
       <div>
         <input formControlName="firstName" placeholder="First Name" [class.error]="firstName.invalid && (contactForm.controls.firstName.dirty || contactForm.controls.firstName.touched)" />
         <em *ngIf="firstName.invalid && (contactForm.controls.firstName.dirty || contactForm.controls.firstName.touched)">Please enter a first name</em>
+        <em *ngIf="firstName.errors?.['minlength'] && (contactForm.controls.firstName.dirty || contactForm.controls.firstName.touched)">First name must be at least 2 characters</em>
         <input formControlName="lastName" placeholder="Last Name" />
         <input formControlName="dateOfBirth" placeholder="Date of Birth" type="date" [value]="contactForm.controls.dateOfBirth.value | date: 'yyyy-MM-dd'" />
         <div>
