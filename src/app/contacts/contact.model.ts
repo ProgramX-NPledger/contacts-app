@@ -6,7 +6,8 @@ export interface Contact {
   favoritesRanking: number | null,
   phone: Phone,
   address: Address,
-  personal: boolean
+  personal: boolean,
+  notes: string
 }
 
 export interface Phone {
