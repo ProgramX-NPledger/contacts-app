@@ -52,6 +52,7 @@
             </option>
           </select>
         </div>
+        <em *ngIf="contactForm.controls.address.invalid && (contactForm.controls.address.dirty || contactForm.controls.address.touched)">Incomplete address</em>
       </div>
     </section>
     <section>
@@ -60,7 +61,7 @@
     </section>
   <div class="buttons">
     <button class="secondary">Cancel</button>
-    <button type="submit" class="primary" (click)="saveContact()">Save</button>
+    <button type="submit" class="primary" (click)="saveContact()" [disabled]="contactForm.invalid">Save</button>
   </div>
   </form>
 </div>

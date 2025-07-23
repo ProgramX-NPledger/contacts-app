@@ -24,11 +24,11 @@ export class EditContactComponent implements OnInit {
       phoneType: ''
     }),
     address: this.fb.nonNullable.group({
-      streetAddress: '',
-      city: '',
-      state: '',
-      postalCode: '',
-      addressType: ''
+      streetAddress: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      addressType: ['', Validators.required]
     }),
     notes: ''
   });
