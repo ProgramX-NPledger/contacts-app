@@ -6,7 +6,7 @@
     <section>
       <nav>Name/Info</nav>
       <div>
-        <con-profile-icon-selector></con-profile-icon-selector>
+        <con-profile-icon-selector formControlName="icon"></con-profile-icon-selector>
         <input formControlName="firstName" placeholder="First Name" [class.error]="firstName.invalid && (contactForm.controls.firstName.dirty || contactForm.controls.firstName.touched)" />
         <em *ngIf="firstName.invalid && (contactForm.controls.firstName.dirty || contactForm.controls.firstName.touched)">Please enter a first name</em>
         <em *ngIf="firstName.errors?.['minlength'] && (contactForm.controls.firstName.dirty || contactForm.controls.firstName.touched)">First name must be at least 2 characters</em>

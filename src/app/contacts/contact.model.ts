@@ -7,7 +7,8 @@ export interface Contact {
   phone: Phone,
   address: Address,
   personal: boolean,
-  notes: string
+  notes: string,
+  icon: string
 }
 
 export interface Phone {
